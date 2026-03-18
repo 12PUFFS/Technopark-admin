@@ -3,9 +3,11 @@ import Header from '../../components/Header/Header';
 
 export default function HomePage() {
   return (
-    <div>
+    <div className="container">
       <Header />
-      <h1>Главная страница</h1>
+      <main className="main content">
+        <h1>Главная страница</h1>
+      </main>
     </div>
   );
 }

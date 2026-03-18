@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import './Header.css';
 import SpbLogo from '../../assets/SPB-Logo.svg';
-import TechnoLogo from '../../assets/Logo_TechnoparkSPb-ru_2020 1.svg';
 
 export default function Header() {
   return (
@@ -13,12 +12,6 @@ export default function Header() {
             src={SpbLogo}
             alt="Герб Санкт-Петербурга"
           />
-
-          {/* <img
-            className="header_logo__img techno"
-            src={TechnoLogo}
-            alt="Лого Текнопарка"
-          /> */}
         </a>
         <ul className="header__list">
           <li className="header__list__item">

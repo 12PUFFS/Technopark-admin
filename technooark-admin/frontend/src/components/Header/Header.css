@@ -6,6 +6,10 @@
   background: white;
   box-shadow: 0 15px 18px rgba(0, 0, 0, 0.03);
   padding: 15px;
+  /* position: absolute;
+  top: 0;
+  left: 0; */
+  width: -webkit-fill-available;
 }
 
 .header_logo__link {
@@ -36,7 +40,7 @@
 
 .header__list {
   display: flex;
-  gap: 40px;
+  gap: 15px;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -49,13 +53,23 @@
   position: relative;
 }
 
-.header__list__item a {
+.header__list__item {
   text-decoration: none;
-  color: #2c3e50;
-  transition: all 0.3s ease;
+
+  transition: all 0.5s ease;
   padding: 8px 0;
   display: inline-block;
   position: relative;
+  cursor: pointer;
+  font-size: 20px;
+  /* color: white; */
+}
+
+.header__list__item:hover {
+  padding: 10px;
+  background: linear-gradient(135deg, #161f8a 0%, #2d085f 100%);
+  color: white;
+  border-radius: 35px;
 }
 
 .header__list__item a::after {
@@ -80,7 +94,7 @@
 .container {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 0 40px;
+  /* padding: 0 40px; */
 }
 
 /* Адаптивность */

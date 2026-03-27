@@ -1,10 +1,6 @@
-import Header from '../../components/Header/Header';
+// import Modal from '../../components/Modal/Modal';
 
-export default function LoginPage() {
-  return (
-    <div className="container">
-      <Header />
-      <div className="content">вход</div>
-    </div>
-  );
-}
+// export default function LoginPage() {
+//   return <Modal />;
+// }
+// //

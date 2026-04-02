@@ -1,6 +1,6 @@
 import './Header.css';
 import SpbLogo from '../../assets/SPB-Logo.svg';
-import { useState } from 'react';
+// import { useState } from 'react';
 // import Modal from '../Modal/Modal';
 import ReachIcon from '../../assets/search.svg';
 

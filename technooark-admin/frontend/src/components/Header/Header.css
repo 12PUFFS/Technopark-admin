@@ -1,19 +1,77 @@
 .header {
-  /* border-bottom: 1px solid #eaeaea; */
+  height: 117px;
+  border-bottom: 1px solid;
+  /* display: flex; */
+  align-items: center;
+}
+
+.upper-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+}
+
+.header input {
+  background: #f2f2f2;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border: none;
+  height: inherit;
+  width: inherit;
+}
+
+.input-wrapper {
+  width: 850px;
+  /* position: relative; */
+  display: flex;
+  height: 46px;
+}
+
+.inpuit-bnt {
+  font-size: 18px;
+  background: #0071e3;
+  color: white;
+  border: none;
+  padding: 0 30px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.search-wrapper {
+  background: #f2f2f2;
+  width: 80px;
+  /* border: 1px solid; */
+  /* position: absolute; */
+  /* border-radius-: 8px; */
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
   display: flex;
   align-items: center;
-  height: 100px;
-  background: white;
-  box-shadow: 0 15px 18px rgba(0, 0, 0, 0.03);
-  padding: 15px;
-  /* position: absolute;
-  top: 0;
-  left: 0; */
-  width: -webkit-fill-available;
+  justify-content: center;
+  /* height: 25px; */
+}
+
+.search {
+  /* padding-right: 20px;
+  padding-left: 20px; */
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.header input {
+  /* padding: 0 10px; */
+  padding-right: 25px;
+  margin-right: 20px;
+}
+
+.header input:focus {
+  outline: none;
+  /* outline-offset: 2px; */
 }
 
 .header_logo__link {
-  margin-right: auto;
+  /* margin-right: auto; */
   display: flex;
   align-items: center;
   gap: 25px;
@@ -26,8 +84,8 @@
 }
 
 .header_logo__img {
-  width: 260px;
-  height: auto;
+  width: 150px;
+  height: 39px;
   object-fit: contain;
   filter: brightness(1);
   transition: filter 0.2s;
@@ -40,7 +98,8 @@
 
 .header__list {
   display: flex;
-  gap: 15px;
+  align-items: center;
+  gap: 10px;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -57,12 +116,20 @@
   text-decoration: none;
 
   transition: all 0.5s ease;
-  padding: 8px 0;
-  display: inline-block;
+  /* padding: 8px 0; */
+  /* display: inline-block; */
   position: relative;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 16px;
   /* color: white; */
+}
+
+.header__list__item_role {
+  padding: 10px;
+  background: linear-gradient(135deg, #161f8a 0%, #2d085f 100%);
+  color: white;
+  border-radius: 35px;
+  background: linear-gradient(135deg, #161f8a 0%, #2d085f 100%);
 }
 
 .header__list__item:hover {
@@ -78,7 +145,7 @@
   bottom: 0;
   left: 0;
   width: 0;
-  height: 2px;
+  /* height: 2px; */
   background: #3498db;
   transition: width 0.3s ease;
 }

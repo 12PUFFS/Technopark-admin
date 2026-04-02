@@ -5,7 +5,7 @@ export default function HomePage() {
     <div className="container">
       <Header />
       <main className="main content">
-        <h1>Главная страница</h1>
+        <h1>Результаты поиска</h1>
       </main>
     </div>
   );

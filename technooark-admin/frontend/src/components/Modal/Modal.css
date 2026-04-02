@@ -51,6 +51,10 @@
   text-align: center;
 }
 
+.modal-input input {
+  padding: 20px;
+}
+
 .modal-btn {
   background: #000;
   padding: 20px;

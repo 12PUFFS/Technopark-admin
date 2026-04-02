@@ -1,25 +1,25 @@
 import './Header.css';
 import SpbLogo from '../../assets/SPB-Logo.svg';
 import { useState } from 'react';
-import Modal from '../Modal/Modal';
+// import Modal from '../Modal/Modal';
 import ReachIcon from '../../assets/search.svg';
 
 export default function Header() {
-  const [modal, setModal] = useState(false);
-  const [userState, setUserState] = useState(null);
+  // const [modal, setModal] = useState(false);
+  // const [userState, setUserState] = useState(null);
 
-  const USER = {
-    role: {
-      admin: {
-        password: '1234',
-        title: 'Админ',
-      },
-      user: {
-        password: '246',
-        title: 'Пользователь',
-      },
-    },
-  };
+  // const USER = {
+  //   role: {
+  //     admin: {
+  //       password: '1234',
+  //       title: 'Админ',
+  //     },
+  //     user: {
+  //       password: '246',
+  //       title: 'Пользователь',
+  //     },
+  //   },
+  // };
 
   return (
     <header className="header">
@@ -35,7 +35,7 @@ export default function Header() {
             <img className="search" src={ReachIcon} alt="" />
           </div>
           <input placeholder="Поиск" type="text" />
-          <button className="inpuit-bnt">Поиск</button>
+          <button className="input-bnt">Поиск</button>
         </div>
         {/* <ul className="header__list">
           {userState ? (
@@ -51,14 +51,14 @@ export default function Header() {
             </li>
           )}
         </ul> */}
-        {modal === true && (
+        {/* {modal === true && (
           <Modal
             modalDefault={modal}
             modalState={setModal}
             userRole={USER.role}
             onLogin={setUserState}
           />
-        )}
+        )} */}
       </div>
       <div className="lower-header">
         <ul>

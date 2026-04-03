@@ -1,11 +1,16 @@
 import { useEffect, useState } from 'react';
 
-import Header from '../../components/Header/Header';
+// import Header from '../../components/Header/Header';
 import { Link } from 'react-router-dom';
 
 export default function HomePage() {
-  const [urls, setUrls] = useState([]);
+  const [urls, setUrls] = useState<SitemapItem[]>([]);
   const [loading, setLoading] = useState(true);
+
+  interface SitemapItem {
+    loc: string;
+    lastmod: string;
+  }
 
   useEffect(() => {
     fetch('sitemap-store.xml')

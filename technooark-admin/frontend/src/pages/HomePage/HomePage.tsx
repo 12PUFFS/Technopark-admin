@@ -14,27 +14,29 @@ export default function HomePage() {
   }
 
   useEffect(() => {
-    // Используем прокси для обхода CORS
-    const proxyUrl = 'https://thingproxy.freeboard.io/fetch/';
-    fetch(`${proxyUrl}https://spbtech.ru/sitemap.xml`)
-      .then((response) => response.text())
-      .then((xmlString) => {
-        const parser = new DOMParser();
-        const xmlDoc = parser.parseFromString(xmlString, 'text/xml');
-        const urlElements = xmlDoc.querySelectorAll('url');
+    const timer = setTimeout(() => {
+      fetch('sitemap-store.xml')
+        .then((response) => response.text())
+        .then((xmlString) => {
+          const parser = new DOMParser();
+          const xmlDoc = parser.parseFromString(xmlString, 'text/xml');
+          const urlElements = xmlDoc.querySelectorAll('url');
 
-        const sitemapData = Array.from(urlElements).map((url) => ({
-          loc: url.querySelector('loc')?.textContent || '',
-          lastmod: url.querySelector('lastmod')?.textContent || '',
-        }));
+          const sitemapData = Array.from(urlElements).map((url) => ({
+            loc: url.querySelector('loc')?.textContent || '',
+            lastmod: url.querySelector('lastmod')?.textContent || '',
+          }));
 
-        setUrls(sitemapData);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error('Ошибка парсинга XML:', error);
-        setLoading(false);
-      });
+          setUrls(sitemapData);
+          setLoading(false);
+        })
+        .catch((error) => {
+          console.error('Ошибка парсинга XML:', error);
+          setLoading(false);
+        });
+    }, 3000); // задержка 3 секунды
+
+    return () => clearTimeout(timer); // очистка таймера
   }, []);
 
   if (loading) return <div className="loading"></div>;

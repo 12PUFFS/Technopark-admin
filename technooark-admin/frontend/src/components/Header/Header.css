@@ -1,7 +1,7 @@
 .back-btn {
   display: flex;
   color: #0071e3;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 400;
   gap: 10px;
   margin-top: 40px;
@@ -29,7 +29,7 @@
 }
 
 .category-item {
-  font-size: 12px;
+  font-size: 14px;
   background: #f2f2f2;
   display: flex;
   padding: 0 16px;

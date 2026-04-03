@@ -55,6 +55,7 @@ a {
   align-content: space-around;
   justify-content: space-between;
   transition: all 0.5s ease;
+  background: #f2f2f2;
 }
 
 .link:hover {
@@ -79,6 +80,10 @@ a {
   border: none;
   cursor: pointer;
   margin-bottom: 50px;
+}
+
+button {
+  font-size: 14px;
 }
 
 button:hover {

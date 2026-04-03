@@ -14,7 +14,9 @@ export default function HomePage() {
   }
 
   useEffect(() => {
-    fetch('sitemap-store.xml')
+    // Используем прокси для обхода CORS
+    const proxyUrl = 'https://thingproxy.freeboard.io/fetch/';
+    fetch(`${proxyUrl}https://spbtech.ru/sitemap.xml`)
       .then((response) => response.text())
       .then((xmlString) => {
         const parser = new DOMParser();
@@ -33,7 +35,6 @@ export default function HomePage() {
         console.error('Ошибка парсинга XML:', error);
         setLoading(false);
       });
-    // задержка 3 секунды
   }, []);
 
   if (loading) return <div className="loading"></div>;

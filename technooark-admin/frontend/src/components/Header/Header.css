@@ -17,8 +17,8 @@
   top: 0;
   border-bottom-right-radius: 8px;
   /* padding: 8px; */
-  width: 70px;
-  height: 70px;
+  width: 100%;
+  height: 90px;
   background: #ffffffee;
   /* background: white; */
 }

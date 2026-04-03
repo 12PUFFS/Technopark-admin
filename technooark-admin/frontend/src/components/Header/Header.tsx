@@ -2,7 +2,7 @@ import './Header.css';
 // import SpbLogo from '../../assets/SPB-Logo.svg';
 import backBtn from '../../assets/back-btn.svg';
 import { useNavigate } from 'react-router-dom';
-// import { useState } from 'react';
+import { useState } from 'react';
 // import Modal from '../Modal/Modal';
 import ReachIcon from '../../assets/search.svg';
 
@@ -23,6 +23,20 @@ export default function Header() {
   //   },
   // };
 
+  const [active, setActive] = useState('');
+  const [text, setText] = useState('');
+
+  const categories = [
+    'IT и цифровые технологии',
+    'Производство и инженерия',
+    'Химия и материаловедение',
+    'Энергетика и ресурсосбережение',
+    'Биотехнологии и медицина',
+    'Транспорт и логистика',
+    'Агропром и пищевая промышленность',
+    'Строительство и урбанистика',
+  ];
+
   const navigate = useNavigate();
   const goBack = () => navigate(-1);
 
@@ -42,20 +56,33 @@ export default function Header() {
           <div className="search-wrapper">
             <img className="search" src={ReachIcon} alt="" />
           </div>
-          <input placeholder="Поиск" type="text" />
+          <input
+            value={text}
+            onChange={(e) => {
+              setText(e.target.value);
+              setActive('');
+            }}
+            onFocus={() => setText('')}
+            placeholder="Поиск"
+            type="text"
+          />
           <button className="input-bnt">Поиск</button>
         </div>
         <ul className="category">
-          <li className="category-item">IT и цифровые технологии</li>
-          <li className="category-item">Производство и инженерия</li>
-          <li className="category-item">Химия и материаловедение</li>
-          <li className="category-item">Энергетика и ресурсосбережение</li>
-          <li className="category-item">Биотехнологии и медицина</li>
-          <li className="category-item">Транспорт и логистика</li>
-          <li className="category-item active">
-            Агропром и пищевая промышленность
-          </li>
-          <li className="category-item">Строительство и урбанистика</li>
+          {categories.map((item, index) => {
+            return (
+              <li
+                onClick={() => {
+                  setActive(item);
+                  setText(item);
+                }}
+                key={index}
+                className={`category-item ${active === item ? 'active' : ''}`}
+              >
+                {item}
+              </li>
+            );
+          })}
         </ul>
       </div>
     </>

@@ -1,6 +1,6 @@
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import backBtn from '../../assets/back-btn.svg';
-import Header from '../../components/Header/Header';
+// import Header from '../../components/Header/Header';
 
 export default function ItemPage() {
   const [searchParams] = useSearchParams();

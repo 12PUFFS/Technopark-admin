@@ -1,38 +1,38 @@
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 
 import Header from '../../components/Header/Header';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 export default function HomePage() {
-  const [urls, setUrls] = useState([]);
-  const [loading, setLoading] = useState(true);
+  // const [urls, setUrls] = useState([]);
+  // const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    fetch('sitemap-store.xml') // ✅ прямой путь от корня public
-      .then((response) => response.text())
-      .then((xmlString) => {
-        const parser = new DOMParser();
-        const xmlDoc = parser.parseFromString(xmlString, 'text/xml');
-        const urlElements = xmlDoc.querySelectorAll('url');
+  // useEffect(() => {
+  //   fetch('sitemap-store.xml')
+  //     .then((response) => response.text())
+  //     .then((xmlString) => {
+  //       const parser = new DOMParser();
+  //       const xmlDoc = parser.parseFromString(xmlString, 'text/xml');
+  //       const urlElements = xmlDoc.querySelectorAll('url');
 
-        const sitemapData = Array.from(urlElements).map((url) => ({
-          loc: url.querySelector('loc')?.textContent || '',
-          lastmod: url.querySelector('lastmod')?.textContent || '',
-        }));
+  //       const sitemapData = Array.from(urlElements).map((url) => ({
+  //         loc: url.querySelector('loc')?.textContent || '',
+  //         lastmod: url.querySelector('lastmod')?.textContent || '',
+  //       }));
 
-        setUrls(sitemapData);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error('Ошибка парсинга XML:', error);
-        setLoading(false);
-      });
-  }, []);
+  //       setUrls(sitemapData);
+  //       setLoading(false);
+  //     })
+  //     .catch((error) => {
+  //       console.error('Ошибка парсинга XML:', error);
+  //       setLoading(false);
+  //     });
+  // }, []);
 
   // const navigate = useNavigate();
   // const goBack = () => navigate(-1);
 
-  if (loading) return <div>Загрузка...</div>;
+  // if (loading) return <div>Загрузка...</div>;
   return (
     <div className="container">
       <Header />

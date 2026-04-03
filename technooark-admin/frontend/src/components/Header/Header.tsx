@@ -1,7 +1,7 @@
 import './Header.css';
 // import SpbLogo from '../../assets/SPB-Logo.svg';
 import backBtn from '../../assets/back-btn.svg';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 // import Modal from '../Modal/Modal';
 import ReachIcon from '../../assets/search.svg';
@@ -38,13 +38,13 @@ export default function Header() {
     'Строительство и урбанистика',
   ];
 
-  const navigate = useNavigate();
-  const goBack = () => navigate(-1);
+  // const navigate = useNavigate();
+  // const goBack = () => navigate(-1);
 
   return (
     <div className="container">
       <header className="header">
-        <a onClick={goBack} className="back-btn" href="">
+        <a className="back-btn" href="https://spbtech.ru/" target="_blank">
           <img src={backBtn} alt="" />
           Назад
         </a>

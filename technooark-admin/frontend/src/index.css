@@ -15,6 +15,7 @@ img {
 .container {
   max-width: 960px;
   margin: 0 auto;
+  /* border: 1px solid; */
 }
 
 ul,
@@ -35,12 +36,51 @@ a {
 
 .link-ul {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+  gap: 30px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  flex-direction: column;
 }
 
 .link {
-  border: 1px solid;
-  width: 50px;
-  font-size: 5px;
+  /* border: 1px solid; */
+  /* width: 50px; */
+  /* width: 300px; */
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  height: 200px;
+  border-radius: 8px;
+  align-content: space-around;
+  justify-content: space-between;
+  transition: all 0.5s ease;
+}
+
+.link:hover {
+  background: #0071e3;
+  color: white;
+}
+
+.btn-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.more {
+  border-radius: 8px;
+  background: #0071e3;
+  color: white;
+  font-weight: 400;
+  padding: 0 60px;
+  width: 300px;
+  font-size: 16px;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 50px;
+}
+
+button:hover {
+  background: #005dbc;
 }

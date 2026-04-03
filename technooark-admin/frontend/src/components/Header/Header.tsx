@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 // import Modal from '../Modal/Modal';
 import ReachIcon from '../../assets/search.svg';
+import HomePage from '../../pages/HomePage/HomePage';
 
 export default function Header() {
   // const [modal, setModal] = useState(false);
@@ -41,7 +42,7 @@ export default function Header() {
   const goBack = () => navigate(-1);
 
   return (
-    <>
+    <div className="container">
       <header className="header">
         <a onClick={goBack} className="back-btn" href="">
           <img src={backBtn} alt="" />
@@ -84,7 +85,9 @@ export default function Header() {
             );
           })}
         </ul>
+        {/* {modal && <Modal />} */}
+        <HomePage />
       </div>
-    </>
+    </div>
   );
 }

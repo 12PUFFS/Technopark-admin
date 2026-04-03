@@ -1,5 +1,6 @@
 // import { useState } from 'react';
-// import './Modal.css';
+import './Modal.css';
+import '../../index.css';
 
 // export default function Modal({ modalDefault, modalState, onLogin, userRole }) {
 //   const [inputValue, setInputValue] = useState('');
@@ -39,3 +40,13 @@
 //     )
 //   );
 // }
+
+export default function Modal() {
+  return (
+    <div className="modal-wrapper">
+      <div className="container">
+        <div className="modal">erhr</div>
+      </div>
+    </div>
+  );
+}

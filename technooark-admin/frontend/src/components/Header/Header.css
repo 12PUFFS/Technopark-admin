@@ -5,7 +5,13 @@
   font-weight: 400;
   gap: 10px;
   margin-top: 40px;
+  /* border: 1px solid; */
+  width: fit-content;
   /* margin-bottom: 165px; */
+}
+
+.back-btn:hover {
+  color: #005dbc;
 }
 
 .title h1 {
@@ -93,9 +99,15 @@ input {
   border-bottom-left-radius: 8px;
   display: flex;
   align-items: center;
+  transition: all 0.5s ease;
   justify-content: center;
   /* height: 25px; */
 }
+
+.search-wrapper:hover {
+  background: #8a8a8a72;
+}
+
 .search:hover {
   height: 25px;
   width: 25px;
@@ -105,17 +117,19 @@ input {
   width: 20px;
   height: 20px;
   cursor: pointer;
-  transition: all 0.1s ease;
+  transition: all 0.5s ease;
 }
 
-.header input {
+input {
   /* padding: 0 10px; */
   /* padding-right: 25px;
   margin-right: 20px; */
   /* width: 824px; */
+  padding: 20px;
 }
 
 input:focus {
   outline: none;
+  color: black;
   /* outline-offset: 2px; */
 }

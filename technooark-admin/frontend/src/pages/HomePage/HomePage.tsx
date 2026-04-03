@@ -33,9 +33,10 @@ export default function HomePage() {
         console.error('Ошибка парсинга XML:', error);
         setLoading(false);
       });
+    // задержка 3 секунды
   }, []);
 
-  if (loading) return <div>Загрузка...</div>;
+  if (loading) return <div className="loading"></div>;
   return (
     <div>
       <div>

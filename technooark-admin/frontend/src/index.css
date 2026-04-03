@@ -23,6 +23,52 @@ img {
   /* border: 1px solid; */
 }
 
+.loading {
+  position: fixed;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #2d085f;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px 30px;
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.loading::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 15px;
+  border: 3px solid #e0e0e0;
+  border-top: 3px solid #0071e3;
+  border-radius: 50%;
+  animation: spin 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+}
+
+.loading::after {
+  content: 'Загрузка';
+  display: block;
+  font-size: 0.9rem;
+  color: #0071e3;
+  letter-spacing: 0.5px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 ul,
 li,
 a {
@@ -85,6 +131,7 @@ a {
   border: none;
   cursor: pointer;
   margin-bottom: 50px;
+  margin-top: 50px;
 }
 
 button {

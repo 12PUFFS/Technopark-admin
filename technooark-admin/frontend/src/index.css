@@ -2,15 +2,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family:
-    Inter Tight,
-    sans-serif;
+  font-family: 'Inter Tight', sans-serif;
 }
 
 body {
-  font-family:
-    Inter Tight,
-    sans-serif;
+  font-family: 'Inter Tight', sans-serif;
 }
 
 img {
@@ -142,14 +138,24 @@ button:hover {
   background: #005dbc;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1024px) {
   .container {
     padding: 20px;
   }
 }
 
-@media (max-width: 425px) {
-  .input-bnt {
+@media (max-width: 500px) {
+  button.input-bnt {
     display: none;
+  }
+
+  /* .category {
+    flex-wrap: nowrap;
+    overflow: scroll;
+    box-shadow: 1px 20px 10px 0px #000000;
+  } */
+
+  .input-wrapper input {
+    margin: 0;
   }
 }

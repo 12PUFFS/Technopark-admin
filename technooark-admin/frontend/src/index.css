@@ -141,3 +141,15 @@ button {
 button:hover {
   background: #005dbc;
 }
+
+@media (max-width: 1000px) {
+  .container {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 425px) {
+  .input-bnt {
+    display: none;
+  }
+}

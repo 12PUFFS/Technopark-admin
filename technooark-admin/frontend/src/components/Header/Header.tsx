@@ -8,6 +8,7 @@ import ReachIcon from '../../assets/search.svg';
 import HomePage from '../../pages/HomePage/HomePage';
 
 export default function Header() {
+  const [inputFocus, setInputFocus] = useState(false);
   // const [modal, setModal] = useState(false);
   // const [userState, setUserState] = useState(null);
 
@@ -24,10 +25,10 @@ export default function Header() {
   //   },
   // };
 
-  const [active, setActive] = useState('');
   const [text, setText] = useState('');
 
   const categories = [
+    'Все услуги',
     'IT и цифровые технологии',
     'Производство и инженерия',
     'Химия и материаловедение',
@@ -37,6 +38,7 @@ export default function Header() {
     'Агропром и пищевая промышленность',
     'Строительство и урбанистика',
   ];
+  const [active, setActive] = useState(categories[0]);
 
   // const navigate = useNavigate();
   // const goBack = () => navigate(-1);
@@ -54,17 +56,19 @@ export default function Header() {
           <h1>ПОИСК ПО САЙТУ</h1>
         </div>
         <div className="shadow-box">
-          <div className="input-wrapper">
+          <div className={`input-wrapper ${inputFocus ? 'focused' : ''}`}>
             <div className="search-wrapper">
               <img className="search" src={ReachIcon} alt="" />
             </div>
             <input
+              onFocus={() => setInputFocus(true)}
+              onBlur={() => setInputFocus(false)}
               value={text}
               onChange={(e) => {
-                setText(e.target.value);
                 setActive('');
+                setText(e.target.value);
               }}
-              onFocus={() => setText('')}
+              onClick={() => setText('')}
               placeholder="Поиск"
               type="text"
             />

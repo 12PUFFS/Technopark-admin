@@ -75,6 +75,7 @@ input {
   height: 46px;
   color: #afafaf;
   margin-right: 20px;
+  font-size: 14px;
 }
 
 .search-container {
@@ -153,5 +154,9 @@ input:focus {
   outline: none;
   color: black;
   font-size: 20px;
-  /* outline-offset: 2px; */
+}
+
+/* Влияем на .search-wrapper, который находится перед input */
+.input-wrapper.focused .search-wrapper {
+  background: #8a8a8a72;
 }

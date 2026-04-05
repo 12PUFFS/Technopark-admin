@@ -385,7 +385,11 @@ button:hover {
     margin-right: 0;
     border-radius: 8px;
     padding: 10px 12px; /* добавил отступы внутри инпута */
-    font-size: 14px; /* чтобы текст не был слишком мелким */
+    font-size: 25px; /* чтобы текст не был слишком мелким */
+  }
+
+  input:focus {
+    font-size: 30px;
   }
 
   .input-bnt {

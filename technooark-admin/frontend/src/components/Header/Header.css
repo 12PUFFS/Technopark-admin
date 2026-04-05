@@ -167,4 +167,8 @@ input:focus {
   .category {
     margin-bottom: 20px; /* ← это применяется только на экранах ≤576px */
   }
+
+  input:focus {
+    font-size: 30px;
+  }
 }

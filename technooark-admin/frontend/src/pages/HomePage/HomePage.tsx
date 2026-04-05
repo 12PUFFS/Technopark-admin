@@ -15,7 +15,7 @@ export default function HomePage() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      fetch('sitemap-stre.xml')
+      fetch('sitemap-store.xml')
         .then((response) => response.text())
         .then((xmlString) => {
           const parser = new DOMParser();

@@ -40,35 +40,42 @@ export default function HomePage() {
   }, []);
 
   if (loading) return <div className="loading"></div>;
+
+  if (urls.length === 0) {
+    return <div className="empty">Нет данных</div>;
+  }
+
   return (
     <div>
-      <div className="full-list">
-        <ul className="link-ul">
-          {urls.slice(0, visibleItems).map((item, index) => (
-            <a
-              href={item.loc}
-              target="_blank"
-              rel="noopener noreferrer"
-              key={index}
-              style={{ textDecoration: 'none', display: 'block' }}
+      {urls && (
+        <div className="full-list">
+          <ul className="link-ul">
+            {urls.slice(0, visibleItems).map((item, index) => (
+              <a
+                href={item.loc}
+                target="_blank"
+                rel="noopener noreferrer"
+                key={index}
+                style={{ textDecoration: 'none', display: 'block' }}
+              >
+                <li className="link">
+                  <div className="link-link">{item.loc}</div>
+                  <small>{item.lastmod}</small>
+                </li>
+              </a>
+            ))}
+          </ul>
+          <div className="btn-wrap">
+            <button
+              onClick={() => setVisibleItems((prev) => prev + 8)}
+              className="more"
+              disabled={visibleItems >= urls.length}
             >
-              <li className="link">
-                <div className="link-link">{item.loc}</div>
-                <small>{item.lastmod}</small>
-              </li>
-            </a>
-          ))}
-        </ul>
-        <div className="btn-wrap">
-          <button
-            onClick={() => setVisibleItems((prev) => prev + 8)}
-            className="more"
-            disabled={visibleItems >= urls.length}
-          >
-            Загрузить ещё
-          </button>
+              Загрузить ещё
+            </button>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

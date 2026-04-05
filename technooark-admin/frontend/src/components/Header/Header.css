@@ -42,6 +42,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  border-bottom: 1px solid #f2f2f2;
+  padding-bottom: 20px;
 }
 
 .category-item {
@@ -159,4 +161,10 @@ input:focus {
 /* Влияем на .search-wrapper, который находится перед input */
 .input-wrapper.focused .search-wrapper {
   background: #8a8a8a72;
+}
+
+@media (max-width: 576px) {
+  .category {
+    margin-bottom: 20px; /* ← это применяется только на экранах ≤576px */
+  }
 }

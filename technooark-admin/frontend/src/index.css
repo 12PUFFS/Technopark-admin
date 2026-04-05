@@ -20,32 +20,28 @@ img {
 }
 
 .loading {
-  position: fixed;
-  top: 80%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 1.2rem;
-  font-weight: 500;
-  color: #2d085f;
-  text-align: center;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 20px 30px;
-  border-radius: 16px;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  /* background: #f2f2f2; */
   z-index: 1000;
+  padding: 30px;
+  height: 300px;
+  border-radius: 8px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
 }
 
 .loading::before {
   content: '';
   display: block;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   margin: 0 auto 15px;
-  border: 3px solid #e0e0e0;
-  border-top: 3px solid #0071e3;
+  border: 7px solid #f2f2f2;
+  border-top: 7px solid #0071e3;
   border-radius: 50%;
-  animation: spin 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+  animation: spin 1s linear infinite;
 }
 
 .loading::after {
@@ -101,13 +97,14 @@ a {
   border-radius: 8px;
   align-content: space-around;
   justify-content: space-between;
-  transition: all 0.5s ease;
+  transition: all 0.7s ease;
   background: #f2f2f2;
 }
 
 .link:hover {
   background: #0071e3;
   color: white;
+
   /* box-shadow: 0px 20px 20px 10px #aca4a2a1; */
 }
 
@@ -146,6 +143,17 @@ button:hover {
   flex-direction: column;
   height: 100vh;
   justify-content: space-between;
+}
+
+.empty {
+  /* background: #f2f2f2; */
+  padding: 30px;
+  height: 300px;
+  border-radius: 8px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  /* background: #f2f2f2; */
 }
 
 /* Улучшенный адаптив */
@@ -214,7 +222,7 @@ button:hover {
   }
 
   .loading {
-    top: 70%;
+    /* top: 70%; */
     padding: 15px 25px;
     font-size: 1rem;
   }
@@ -274,11 +282,11 @@ button:hover {
   }
 
   .loading {
-    top: 92%;
+    /* top: 92%; */
     padding: 12px 20px;
     font-size: 0.9rem;
-    width: 90%;
-    max-width: 280px;
+
+    /* max-width: 280px; */
     text-align: center;
   }
 
@@ -374,6 +382,7 @@ button:hover {
     width: 100%;
     min-width: 0;
     margin-right: 0;
+    border-radius: 8px;
     padding: 10px 12px; /* добавил отступы внутри инпута */
     font-size: 14px; /* чтобы текст не был слишком мелким */
   }

@@ -42,7 +42,7 @@ export default function HomePage() {
   if (loading) return <div className="loading"></div>;
   return (
     <div>
-      <div>
+      <div className="full-list">
         <ul className="link-ul">
           {urls.slice(0, visibleItems).map((item, index) => (
             <a

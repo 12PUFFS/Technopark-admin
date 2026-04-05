@@ -53,38 +53,40 @@ export default function Header() {
         <div className="title">
           <h1>ПОИСК ПО САЙТУ</h1>
         </div>
-        <div className="input-wrapper">
-          <div className="search-wrapper">
-            <img className="search" src={ReachIcon} alt="" />
+        <div className="shadow-box">
+          <div className="input-wrapper">
+            <div className="search-wrapper">
+              <img className="search" src={ReachIcon} alt="" />
+            </div>
+            <input
+              value={text}
+              onChange={(e) => {
+                setText(e.target.value);
+                setActive('');
+              }}
+              onFocus={() => setText('')}
+              placeholder="Поиск"
+              type="text"
+            />
+            <button className="input-bnt">Поиск</button>
           </div>
-          <input
-            value={text}
-            onChange={(e) => {
-              setText(e.target.value);
-              setActive('');
-            }}
-            onFocus={() => setText('')}
-            placeholder="Поиск"
-            type="text"
-          />
-          <button className="input-bnt">Поиск</button>
+          <ul className="category">
+            {categories.map((item, index) => {
+              return (
+                <li
+                  onClick={() => {
+                    setActive(item);
+                    setText(item);
+                  }}
+                  key={index}
+                  className={`category-item ${active === item ? 'active' : ''}`}
+                >
+                  {item}
+                </li>
+              );
+            })}
+          </ul>
         </div>
-        <ul className="category">
-          {categories.map((item, index) => {
-            return (
-              <li
-                onClick={() => {
-                  setActive(item);
-                  setText(item);
-                }}
-                key={index}
-                className={`category-item ${active === item ? 'active' : ''}`}
-              >
-                {item}
-              </li>
-            );
-          })}
-        </ul>
         {/* {modal && <Modal />} */}
         <HomePage />
       </div>

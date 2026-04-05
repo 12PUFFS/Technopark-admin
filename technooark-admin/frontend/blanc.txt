@@ -75,3 +75,8 @@ export default function Header() {
     </header>
   );
 }
+
+
+
+
+box-shadow: 0px 48px 53px -3px #0303035e;

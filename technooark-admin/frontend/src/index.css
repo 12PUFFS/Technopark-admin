@@ -223,6 +223,10 @@ button:hover {
     width: 35px;
     height: 35px;
   }
+
+  input {
+    margin-right: 0;
+  }
 }
 
 /* Маленькие телефоны (480px - 576px) */
@@ -244,10 +248,6 @@ button:hover {
 
   button.input-bnt {
     display: none;
-  }
-
-  input {
-    margin: 0;
   }
 
   .link {
@@ -274,7 +274,7 @@ button:hover {
   }
 
   .loading {
-    top: 60%;
+    top: 92%;
     padding: 12px 20px;
     font-size: 0.9rem;
     width: 90%;
@@ -361,18 +361,33 @@ button:hover {
 }
 
 /* Тёмная тема (опционально) */
-@media (prefers-color-scheme: dark) {
-  .link {
-    background: #1a1a1a;
-    color: #e0e0e0;
+
+/* Инпут на всю ширину при 575px */
+@media (max-width: 575px) {
+  .input-wrapper {
+    width: 100%;
+    display: flex;
   }
 
-  .link-link {
-    color: #e0e0e0;
+  .input-wrapper input {
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+    margin-right: 0;
+    padding: 10px 12px; /* добавил отступы внутри инпута */
+    font-size: 14px; /* чтобы текст не был слишком мелким */
   }
 
-  .loading {
-    background: rgba(0, 0, 0, 0.9);
-    color: #e0e0e0;
+  .input-bnt {
+    white-space: nowrap;
+    padding: 10px 16px; /* добавил отступы кнопке */
+    height: auto; /* чтобы высота подстраивалась */
+  }
+}
+
+@media (max-width: 575px) {
+  div.search-wrapper {
+    /* добавил div */
+    display: none;
   }
 }

@@ -1,14 +1,15 @@
 import './Header.css';
-// import SpbLogo from '../../assets/SPB-Logo.svg';
+import '../../index.css';
+import { statesAndData } from '../../App';
 import backBtn from '../../assets/back-btn.svg';
-// import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+
+import { useContext, useState } from 'react';
 // import Modal from '../Modal/Modal';
 import ReachIcon from '../../assets/search.svg';
 import HomePage from '../../pages/HomePage/HomePage';
 
-// const inputContext = createContext();
 export default function Header() {
+  const { loading } = useContext(statesAndData);
   const [inputFocus, setInputFocus] = useState(false);
   // const [modal, setModal] = useState(false);
   // const [userState, setUserState] = useState(null);
@@ -27,6 +28,27 @@ export default function Header() {
     'Строительство и урбанистика',
   ];
   const [active, setActive] = useState(categories[0]);
+
+  // if (loading === false) {
+  //   return (
+  //     <ul className="category">
+  //       {categories.map((item, index) => {
+  //         return (
+  //           <li
+  //             onClick={() => {
+  //               setActive(item);
+  //               setText(item);
+  //             }}
+  //             key={index}
+  //             className={`skeleton category-item ${active === item ? 'active' : ''}`}
+  //           >
+  //             {item}
+  //           </li>
+  //         );
+  //       })}
+  //     </ul>
+  //   );
+  // }
 
   const filteredText = (text, urls) => {
     if (!text || text.length === 0) {
@@ -78,7 +100,7 @@ export default function Header() {
                     setText(item);
                   }}
                   key={index}
-                  className={`category-item ${active === item ? 'active' : ''}`}
+                  className={`${loading ? 'skeleton' : ''} category-item ${active === item ? 'active' : ''}`}
                 >
                   {item}
                 </li>

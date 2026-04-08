@@ -1,66 +1,30 @@
-import { use, useEffect, useState } from 'react';
+import { useContext } from 'react';
+import { statesAndData } from '../../App';
 
-// import Header from '../../components/Header/Header';
-// import { Link } from 'react-router-dom';
+// import { useEffect, useState } from 'react';
 
 export default function HomePage({ text, setText, filteredText }) {
-  const [urls, setUrls] = useState<SitemapItem[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [visibleItems, setVisibleItems] = useState(8);
-
-  const [allUrls, setAllUrls] = useState([]);
-  const [filteredUrls, setFilteredUrls] = useState([]);
-
-  // const [allUrls, setAllUrls] = useState([])
-  // const [filteredUrls, setFilteredUrls] = useState()
-  // const []
-
-  interface SitemapItem {
-    loc: string;
-    lastmod: string;
-  }
-
-  // useEffect(() => {
-  //   if (allUrls.length > 0) {
-  //     const result = filteredText(text, allUrls);
-  //     setFilteredUrls(result);
-  //   }
-  // }, [text, allUrls, filteredText]);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      fetch('https://spbtech.ru/sitemap-store.xml')
-        .then((res) => res.text())
-        .then((xmlString) => {
-          const parser = new DOMParser();
-          const xmlDoc = parser.parseFromString(xmlString, 'text/xml');
-          const urlElements = xmlDoc.querySelectorAll('url');
-
-          const sitemapData = Array.from(urlElements).map((url) => ({
-            loc: url.querySelector('loc')?.textContent || '',
-            lastmod: url.querySelector('lastmod')?.textContent || '',
-          }));
-
-          setUrls(sitemapData);
-          setAllUrls(sitemapData);
-          setFilteredUrls(sitemapData);
-          setLoading(false);
-        })
-        .catch((e) => {
-          console.error(e);
-          setLoading(false);
-        });
-    }, 300);
-  }, []);
-
-  // return <div className="loading"></div>;
+  const { urls, loading, visibleItems, allUrls, filteredUrls } =
+    useContext(statesAndData);
 
   if (loading) {
     return (
-      <div className="skeleton-wrapper">
-        <div className="skeleton link">rtyui</div>
-        <div className="skeleton link">rtyui</div>
-        <div className="skeleton link">rtyui</div>
+      <div>
+        <div className="finded-wrapper">
+          <div className="skeleton finded">Найдено: {filteredUrls.length}</div>
+          <div className="filter-by-date">
+            <button className="skeleton by-old">сначала старые</button>
+            <button className="skeleton by-new">сначала новые</button>
+          </div>
+        </div>
+        <div className="skeleton-wrapper">
+          <div className="skeleton link"></div>
+          <div className="skeleton link"></div>
+          <div className="skeleton link"></div>
+        </div>
+        <div className="btn-wrap">
+          <button className="skeleton more">Загрузить ещё</button>
+        </div>
       </div>
     );
   }

@@ -210,8 +210,12 @@ button:hover {
   pointer-events: none;
   user-select: none;
   position: relative;
-  margin-bottom: 50px;
+  /* margin-bottom: 50px; */
   overflow: hidden;
+}
+
+.skeleton.link {
+  margin-bottom: 30px;
 }
 
 .skeleton.link::before {
@@ -238,6 +242,10 @@ button:hover {
   100% {
     background-position: -200% 0;
   }
+}
+
+.finded-wrapper.skeleton * {
+  margin-bottom: 0;
 }
 
 /* Улучшенный адаптив */
@@ -332,6 +340,18 @@ button:hover {
     gap: 12px;
   }
 
+  .by-old,
+  .by-new {
+    /* padding: 5px 5px; */
+    font-size: 15px;
+  }
+
+  .finded-wrapper {
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+  }
+
   .link-ul {
     gap: 15px;
     /* margin-top: 20px; */
@@ -420,7 +440,7 @@ button:hover {
   }
 
   .link {
-    min-height: 100px;
+    min-height: 150px;
     padding: 12px;
   }
 

@@ -41,7 +41,7 @@ function App() {
           console.error(e);
           setLoading(false);
         });
-    }, 500);
+    }, 5000);
     return () => clearTimeout(timer);
   }, []);
   return (

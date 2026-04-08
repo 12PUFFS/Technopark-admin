@@ -1,10 +1,11 @@
+// @ts-nocheck
 import { useContext } from 'react';
 import { statesAndData } from '../../App';
 
 // import { useEffect, useState } from 'react';
 
-export default function HomePage({ text, setText, filteredText }) {
-  const { urls, loading, visibleItems, allUrls, filteredUrls } =
+export default function HomePage() {
+  const { urls, loading, visibleItems, allUrls, filteredUrls, text, setText } =
     useContext(statesAndData);
 
   if (loading) {

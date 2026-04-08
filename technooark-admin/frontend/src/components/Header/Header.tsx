@@ -1,3 +1,4 @@
+// @ts-nocheck
 import './Header.css';
 import '../../index.css';
 import { statesAndData } from '../../App';
@@ -9,12 +10,10 @@ import ReachIcon from '../../assets/search.svg';
 import HomePage from '../../pages/HomePage/HomePage';
 
 export default function Header() {
-  const { loading } = useContext(statesAndData);
+  const { loading, performSearch } = useContext(statesAndData);
   const [inputFocus, setInputFocus] = useState(false);
   // const [modal, setModal] = useState(false);
   // const [userState, setUserState] = useState(null);
-
-  const [text, setText] = useState('');
 
   const categories = [
     'Все услуги',
@@ -50,15 +49,7 @@ export default function Header() {
   //   );
   // }
 
-  const filteredText = (text, urls) => {
-    if (!text || text.length === 0) {
-      return urls;
-    }
-
-    return urls.filter((i) => {
-      return i.loc.includes(text.toLowerCase());
-    });
-  };
+  const { text, setText } = useContext(statesAndData);
 
   return (
     <div className="container">
@@ -89,7 +80,9 @@ export default function Header() {
               placeholder="Поиск"
               type="text"
             />
-            <button className="input-bnt">Поиск</button>
+            <button onClick={() => performSearch()} className="input-bnt">
+              Поиск
+            </button>
           </div>
           <ul className="category">
             {categories.map((item, index) => {
@@ -109,7 +102,7 @@ export default function Header() {
           </ul>
         </div>
         {/* {modal && <Modal />} */}
-        <HomePage text={text} setText={setText} filteredText={filteredText} />
+        <HomePage />
       </div>
     </div>
   );

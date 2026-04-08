@@ -7,23 +7,11 @@ import { useState } from 'react';
 import ReachIcon from '../../assets/search.svg';
 import HomePage from '../../pages/HomePage/HomePage';
 
+// const inputContext = createContext();
 export default function Header() {
   const [inputFocus, setInputFocus] = useState(false);
   // const [modal, setModal] = useState(false);
   // const [userState, setUserState] = useState(null);
-
-  // const USER = {
-  //   role: {
-  //     admin: {
-  //       password: '1234',
-  //       title: 'Админ',
-  //     },
-  //     user: {
-  //       password: '246',
-  //       title: 'Пользователь',
-  //     },
-  //   },
-  // };
 
   const [text, setText] = useState('');
 
@@ -40,8 +28,15 @@ export default function Header() {
   ];
   const [active, setActive] = useState(categories[0]);
 
-  // const navigate = useNavigate();
-  // const goBack = () => navigate(-1);
+  const filteredText = (text, urls) => {
+    if (!text || text.length === 0) {
+      return urls;
+    }
+
+    return urls.filter((i) => {
+      return i.loc.includes(text.toLowerCase());
+    });
+  };
 
   return (
     <div className="container">
@@ -92,7 +87,7 @@ export default function Header() {
           </ul>
         </div>
         {/* {modal && <Modal />} */}
-        <HomePage />
+        <HomePage text={text} setText={setText} filteredText={filteredText} />
       </div>
     </div>
   );

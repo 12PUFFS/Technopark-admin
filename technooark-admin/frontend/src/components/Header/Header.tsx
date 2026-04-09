@@ -9,22 +9,18 @@ import ReachIcon from '../../assets/search.svg';
 import HomePage from '../../pages/HomePage/HomePage';
 
 export default function Header() {
-  const { loading, text, setText, filteredUrls, filterText } =
-    useContext(statesAndData);
+  const {
+    loading,
+    text,
+    setText,
+    filteredUrls,
+    categories,
+    filterText,
+    allUrls,
+  } = useContext(statesAndData);
   const [inputFocus, setInputFocus] = useState(false);
   // const [modal, setModal] = useState(false);
 
-  const categories = [
-    'Все услуги',
-    'IT и цифровые технологии',
-    'Производство и инженерия',
-    'Химия и материаловедение',
-    'Энергетика и ресурсосбережение',
-    'Биотехнологии и медицина',
-    'Транспорт и логистика',
-    'Агропром и пищевая промышленность',
-    'Строительство и урбанистика',
-  ];
   const [active, setActive] = useState(categories[0]);
 
   return (
@@ -51,6 +47,11 @@ export default function Header() {
               onChange={(e) => {
                 setText(e.target.value);
               }}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  filterText(text);
+                }
+              }}
               onClick={() => {
                 if (text === active) {
                   setText('');
@@ -70,6 +71,7 @@ export default function Header() {
                   onClick={() => {
                     setActive(item);
                     setText(item);
+                    filterText(item);
                   }}
                   key={index}
                   className={`${loading ? 'skeleton' : ''} category-item ${active === item ? 'active' : ''}`}

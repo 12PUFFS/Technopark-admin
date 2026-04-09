@@ -118,13 +118,16 @@ export default function HomePage() {
             ))}
           </ul>
           <div className="btn-wrap">
-            <button
-              onClick={() => setVisibleItems((prev) => prev + 8)}
-              className="more"
-              disabled={visibleItems >= filteredUrls.length}
-            >
-              Загрузить ещё
-            </button>
+            {visibleItems < filteredUrls.length && (
+              <div className="btn-wrap">
+                <button
+                  onClick={() => setVisibleItems((prev) => prev + 8)}
+                  className="more"
+                >
+                  Загрузить ещё
+                </button>
+              </div>
+            )}
           </div>
         </div>
       )}

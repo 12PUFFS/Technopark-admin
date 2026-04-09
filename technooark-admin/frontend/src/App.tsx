@@ -4,6 +4,11 @@ import './App.css';
 import { useState, createContext, useEffect } from 'react';
 import Header from './components/Header/Header';
 
+type SitemapItem = {
+  loc: string;
+  lastmod: string;
+};
+
 type AppContextType = {
   urls: SitemapItem[];
   loading: boolean;
@@ -15,6 +20,7 @@ type AppContextType = {
   text: string;
   setText: React.Dispatch<React.SetStateAction<string>>;
   filterText: (text: string) => void;
+  categories: string[];
 };
 
 export const statesAndData = createContext<AppContextType | null>(null);
@@ -25,6 +31,18 @@ function App() {
   const [allUrls, setAllUrls] = useState([]);
   const [filteredUrls, setFilteredUrls] = useState([]);
   const [text, setText] = useState('');
+
+  const categories = [
+    'Все услуги',
+    'IT и цифровые технологии',
+    'Производство и инженерия',
+    'Химия и материаловедение',
+    'Энергетика и ресурсосбережение',
+    'Биотехнологии и медицина',
+    'Транспорт и логистика',
+    'Агропром и пищевая промышленность',
+    'Строительство и урбанистика',
+  ];
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -49,18 +67,18 @@ function App() {
           console.error(e);
           setLoading(false);
         });
-    }, 5000);
+    }, 50);
     return () => clearTimeout(timer);
   }, []);
 
   const filterText = (text) => {
-    if (!text.trim()) {
+    if (!text.trim() || text === 'Все услуги') {
       setFilteredUrls(allUrls);
       return;
     }
 
     const result = allUrls.filter((i) => {
-      i.loc.toLowerCase().includes(text.toLowerCase());
+      return i.loc.toLowerCase().includes(text.toLowerCase());
     });
     setFilteredUrls(result);
   };
@@ -78,6 +96,7 @@ function App() {
         text,
         filterText,
         setText,
+        categories,
       }}
     >
       <Header />

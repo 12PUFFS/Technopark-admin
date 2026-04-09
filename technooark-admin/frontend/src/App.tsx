@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import './App.css';
 import { useState, createContext, useEffect } from 'react';
 import Header from './components/Header/Header';

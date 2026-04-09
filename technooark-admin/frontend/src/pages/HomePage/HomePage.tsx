@@ -1,12 +1,47 @@
 // @ts-nocheck
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { statesAndData } from '../../App';
 
 // import { useEffect, useState } from 'react';
 
 export default function HomePage() {
-  const { urls, loading, visibleItems, allUrls, filteredUrls, text, setText } =
-    useContext(statesAndData);
+  const {
+    urls,
+    loading,
+    visibleItems,
+    allUrls,
+    text,
+    filteredUrls,
+    setText,
+    setFilteredUrls,
+    setVisibleItems,
+  } = useContext(statesAndData);
+
+  const [active, setActive] = useState('new');
+
+  const filterByOlder = (filteredUrls) => {
+    return [...filteredUrls].sort((a, b) => a.lastmod.localeCompare(b.lastmod));
+  };
+
+  const handleBySortOlder = () => {
+    const sorted = filterByOlder(filteredUrls);
+    setFilteredUrls(sorted);
+  };
+
+  const filterByNew = (filteredUrls) => {
+    return [...filteredUrls].sort((a, b) => b.lastmod.localeCompare(a.lastmod));
+  };
+
+  const handleBySortNew = () => {
+    const sortredNew = filterByNew(filteredUrls);
+    setFilteredUrls(sortredNew);
+  };
+
+  useEffect(() => {
+    if (!loading && filteredUrls.length > 0) {
+      handleBySortNew();
+    }
+  }, [loading]);
 
   if (loading) {
     return (
@@ -19,9 +54,14 @@ export default function HomePage() {
           </div>
         </div>
         <div className="skeleton-wrapper">
-          <div className="skeleton link"></div>
-          <div className="skeleton link"></div>
-          <div className="skeleton link"></div>
+          <ul className="link-ul">
+            {[...Array(visibleItems)].map((_, index) => (
+              <li key={index} className="skeleton link">
+                <div className="link-link"></div>
+                <small></small>
+              </li>
+            ))}
+          </ul>
         </div>
         <div className="btn-wrap">
           <button className="skeleton more">Загрузить ещё</button>
@@ -39,8 +79,24 @@ export default function HomePage() {
       <div className="finded-wrapper">
         <div className="finded">Найдено: {filteredUrls.length}</div>
         <div className="filter-by-date">
-          <button className="by-old">сначала старые</button>
-          <button className="by-new">сначала новые</button>
+          <button
+            onClick={() => {
+              handleBySortOlder();
+              setActive('old');
+            }}
+            className={`by-old ${active === 'old' ? 'active' : ''}`}
+          >
+            сначала старые
+          </button>
+          <button
+            onClick={() => {
+              handleBySortNew();
+              setActive('new');
+            }}
+            className={`by-new ${active === 'new' ? 'active' : ''}`}
+          >
+            сначала новые
+          </button>
         </div>
       </div>
       {filteredUrls.length > 0 && (

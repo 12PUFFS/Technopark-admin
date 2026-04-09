@@ -6,8 +6,13 @@ type AppContextType = {
   urls: SitemapItem[];
   loading: boolean;
   visibleItems: number;
-  allUrls: any[];
-  filteredUrls: any[];
+  setVisibleItems: React.Dispatch<React.SetStateAction<number>>;
+  allUrls: SitemapItem[];
+  filteredUrls: SitemapItem[];
+  setFilteredUrls: React.Dispatch<React.SetStateAction<SitemapItem[]>>;
+  text: string;
+  setText: React.Dispatch<React.SetStateAction<string>>;
+  filterText: (text: string) => void;
 };
 
 export const statesAndData = createContext<AppContextType | null>(null);
@@ -17,6 +22,7 @@ function App() {
   const [visibleItems, setVisibleItems] = useState(8);
   const [allUrls, setAllUrls] = useState([]);
   const [filteredUrls, setFilteredUrls] = useState([]);
+  const [text, setText] = useState('');
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -44,9 +50,33 @@ function App() {
     }, 5000);
     return () => clearTimeout(timer);
   }, []);
+
+  const filterText = (text) => {
+    if (!text.trim()) {
+      setFilteredUrls(allUrls);
+      return;
+    }
+
+    const result = allUrls.filter((i) => {
+      i.loc.toLowerCase().includes(text.toLowerCase());
+    });
+    setFilteredUrls(result);
+  };
+
   return (
     <statesAndData.Provider
-      value={{ urls, loading, visibleItems, allUrls, filteredUrls }}
+      value={{
+        urls,
+        loading,
+        visibleItems,
+        setVisibleItems,
+        setFilteredUrls,
+        allUrls,
+        filteredUrls,
+        text,
+        filterText,
+        setText,
+      }}
     >
       <Header />
     </statesAndData.Provider>

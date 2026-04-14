@@ -119,7 +119,7 @@ export default function HomePage() {
               >
                 <li className="link">
                   <div className="link-link">{item.loc}</div>
-                  <small>{correctDate(item.lastmod)}</small>
+                  <small className="date">{correctDate(item.lastmod)}</small>
                 </li>
               </a>
             ))}

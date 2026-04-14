@@ -161,6 +161,15 @@ button:hover {
   /* border: 1px solid; */
   /* margin-bottom: 20px; */
   /* text-align: end; */
+  display: flex;
+  align-items: center;
+  gap: 5px 10px;
+}
+
+.find-number {
+  padding: 5px 10px;
+  border-radius: 8px;
+  background: #f2f2f2;
 }
 
 .finded-wrapper {

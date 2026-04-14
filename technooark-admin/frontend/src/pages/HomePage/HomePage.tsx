@@ -9,6 +9,7 @@ export default function HomePage() {
     urls,
     loading,
     visibleItems,
+    correctDate,
     allUrls,
     text,
     filteredUrls,
@@ -47,7 +48,10 @@ export default function HomePage() {
     return (
       <div>
         <div className="finded-wrapper">
-          <div className="skeleton finded">Найдено: {filteredUrls.length}</div>
+          <div className=" finded">
+            <p>Найдено:</p>
+            <div className="skeleton find-number">{filteredUrls.length}</div>
+          </div>
           <div className="filter-by-date">
             <button className="skeleton by-old">сначала старые</button>
             <button className="skeleton by-new">сначала новые</button>
@@ -77,7 +81,10 @@ export default function HomePage() {
   return (
     <div>
       <div className="finded-wrapper">
-        <div className="finded">Найдено: {filteredUrls.length}</div>
+        <div className=" finded">
+          <p>Найдено:</p>
+          <div className="find-number">{filteredUrls.length}</div>
+        </div>
         <div className="filter-by-date">
           <button
             onClick={() => {
@@ -112,7 +119,7 @@ export default function HomePage() {
               >
                 <li className="link">
                   <div className="link-link">{item.loc}</div>
-                  <small>{item.lastmod}</small>
+                  <small>{correctDate(item.lastmod)}</small>
                 </li>
               </a>
             ))}

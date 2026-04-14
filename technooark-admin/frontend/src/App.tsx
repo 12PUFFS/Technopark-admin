@@ -21,6 +21,7 @@ type AppContextType = {
   setText: React.Dispatch<React.SetStateAction<string>>;
   filterText: (text: string) => void;
   categories: string[];
+  // correctDate: (lastmod: string) => string;
 };
 
 export const statesAndData = createContext<AppContextType | null>(null);
@@ -28,21 +29,36 @@ function App() {
   const [urls, setUrls] = useState<SitemapItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [visibleItems, setVisibleItems] = useState(8);
-  const [allUrls, setAllUrls] = useState([]);
-  const [filteredUrls, setFilteredUrls] = useState([]);
+  const [allUrls, setAllUrls] = useState<SitemapItem[]>([]);
+  const [filteredUrls, setFilteredUrls] = useState<SitemapItem[]>([]);
   const [text, setText] = useState('');
 
   const categories = [
     'Все услуги',
-    'IT и цифровые технологии',
-    'Производство и инженерия',
-    'Химия и материаловедение',
-    'Энергетика и ресурсосбережение',
-    'Биотехнологии и медицина',
-    'Транспорт и логистика',
-    'Агропром и пищевая промышленность',
-    'Строительство и урбанистика',
+    // 'IT и цифровые технологии',
+    // 'Производство и инженерия',
+    // 'Химия и материаловедение',
+    // 'Энергетика и ресурсосбережение',
+    // 'Биотехнологии и медицина',
+    // 'Транспорт и логистика',
+    // 'Агропром и пищевая промышленность',
+    // 'Строительство и урбанистика',
+    'Технопарк',
+    'Cтартапы',
+    'Резиденты',
+    'Гранты',
+    'Обратный инжинринг',
+    'БПЛА',
   ];
+
+  const correctDate = (lastmod: string) => {
+    if (!lastmod) {
+      return 'Нет даты';
+    }
+    const yearDate = lastmod.slice(0, 10);
+    const dayDate = lastmod.slice(11, 16);
+    return `${yearDate} ${dayDate}`;
+  };
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -67,7 +83,7 @@ function App() {
           console.error(e);
           setLoading(false);
         });
-    }, 50);
+    }, 500);
     return () => clearTimeout(timer);
   }, []);
 
@@ -97,6 +113,7 @@ function App() {
         filterText,
         setText,
         categories,
+        correctDate,
       }}
     >
       <Header />

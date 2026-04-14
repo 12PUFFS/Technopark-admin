@@ -299,7 +299,8 @@ button:hover {
 
   .link {
     padding: 20px;
-    min-height: 160px;
+    /* min-height: 160px; */
+    height: 200px;
   }
 
   .link-link {
@@ -381,7 +382,7 @@ button:hover {
 
   .link {
     padding: 15px;
-    height: 230px;
+    height: 190px;
   }
 
   .link-link {
@@ -430,7 +431,7 @@ button:hover {
 
   .link {
     padding: 12px;
-    height: 215px;
+    height: 210px;
   }
 
   .finded-wrapper {
@@ -486,7 +487,7 @@ button:hover {
   }
 
   .link {
-    min-height: 150px;
+    height: 190px;
     padding: 12px;
   }
 
@@ -507,7 +508,8 @@ button:hover {
 
   .link {
     padding: 20px;
-    min-height: 150px;
+    /* min-height: 150px; */
+    height: 190px;
   }
 }
 

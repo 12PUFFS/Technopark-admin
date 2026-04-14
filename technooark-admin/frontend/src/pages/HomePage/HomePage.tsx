@@ -44,6 +44,10 @@ export default function HomePage() {
     }
   }, [loading]);
 
+  if (!loading && text && text !== 'Все услуги' && filteredUrls.length === 0) {
+    return <div className="empty">По запросу "{text}" ничего не найдено</div>;
+  }
+
   if (loading) {
     return (
       <div>

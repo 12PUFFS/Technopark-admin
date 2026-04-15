@@ -219,7 +219,7 @@ button:hover {
 }
 
 .skeleton.link {
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
 }
 
 .skeleton.link::before {
@@ -268,7 +268,7 @@ button:hover {
   .link {
     padding: 25px;
     height: auto;
-    min-height: 180px;
+    /* min-height: 180px; */
   }
 
   .link-link {

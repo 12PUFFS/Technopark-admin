@@ -7,6 +7,7 @@ import { useContext, useState } from 'react';
 // import Modal from '../Modal/Modal';
 import ReachIcon from '../../assets/search.svg';
 import HomePage from '../../pages/HomePage/HomePage';
+import cross from '../../assets/cross.svg';
 
 export default function Header() {
   const {
@@ -60,6 +61,19 @@ export default function Header() {
               placeholder={active}
               type="text"
             />
+            {text.trim().length > 0 && (
+              <div className="trash">
+                <img
+                  onClick={() => {
+                    setText('');
+                    filterText('');
+                  }}
+                  className="trash-img"
+                  src={cross}
+                  alt=""
+                />
+              </div>
+            )}
             <button onClick={() => filterText(text)} className="input-bnt">
               Поиск
             </button>

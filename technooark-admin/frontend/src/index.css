@@ -150,7 +150,7 @@ button:hover {
   align-items: center;
   display: flex;
   justify-content: center;
-  border: 1px SOLID;
+  /* border: 1px SOLID; */
 }
 
 .empty p {

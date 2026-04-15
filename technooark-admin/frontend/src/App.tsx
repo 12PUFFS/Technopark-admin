@@ -60,6 +60,8 @@ function App() {
     return `${yearDate} ${dayDate}`;
   };
 
+  // https://spbtech.ru/sitemap.xml
+
   useEffect(() => {
     const timer = setTimeout(() => {
       fetch('https://spbtech.ru/sitemap-store.xml')

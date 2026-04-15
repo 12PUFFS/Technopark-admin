@@ -45,7 +45,27 @@ export default function HomePage() {
   }, [loading]);
 
   if (!loading && text && text !== 'Все услуги' && filteredUrls.length === 0) {
-    return <div className="empty">По запросу "{text}" ничего не найдено</div>;
+    return (
+      <div>
+        <div className="finded-wrapper">
+          <div className=" finded">
+            <p>Найдено:</p>
+            <div className=" find-number">{filteredUrls.length}</div>
+          </div>
+          <div className="filter-by-date">
+            <button className="by-old">сначала старые</button>
+            <button className="by-new">сначала новые</button>
+          </div>
+        </div>
+        <div className="skeleton-wrapper">
+          <ul className="link-ul">
+            <div className="empty">
+              <p>По запросу "{text}" ничего не найдено</p>
+            </div>
+          </ul>
+        </div>
+      </div>
+    );
   }
 
   if (loading) {

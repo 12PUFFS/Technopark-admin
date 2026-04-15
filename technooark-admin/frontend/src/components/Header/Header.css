@@ -58,6 +58,7 @@
 .category-item:hover {
   background: #0071e3;
   color: white;
+  transition: all 1s ease;
 }
 
 .active {
@@ -121,6 +122,7 @@ input {
   transition: all 0.5s ease;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
+  padding-right: 75px;
 }
 
 input:focus {
@@ -190,12 +192,12 @@ input:focus {
   font-weight: 500;
   margin-left: 10px;
   flex-shrink: 0;
-  transition: all 0.3s ease;
+  transition: all 0.7s ease;
 }
 
 .input-bnt:hover {
   background: #005dbc;
-  transform: scale(1.02);
+  /* transform: scale(1.1); */
 }
 
 /* ========== FOCUS STATE ========== */

@@ -79,6 +79,7 @@ a {
   display: flex;
   gap: 30px;
   flex-direction: column;
+  margin-bottom: 50px;
 }
 
 .date {
@@ -96,7 +97,7 @@ a {
   display: flex;
   flex-direction: column;
   padding: 30px;
-  height: 200px;
+  height: 310px;
   border-radius: 8px;
   align-content: space-around;
   justify-content: space-between;
@@ -126,7 +127,6 @@ a {
   border: none;
   cursor: pointer;
   margin-bottom: 50px;
-  margin-top: 50px;
 }
 
 button {
@@ -145,11 +145,16 @@ button:hover {
 
 .empty {
   padding: 30px;
-  height: 280px;
+  height: 310px;
   border-radius: 8px;
   align-items: center;
   display: flex;
   justify-content: center;
+  border: 1px SOLID;
+}
+
+.empty p {
+  overflow: hidden;
 }
 
 .finded {
@@ -199,6 +204,10 @@ button:hover {
 .skeleton-wrapper {
   display: flex;
   flex-direction: column;
+}
+
+.skeleton-wrapper .link-ul {
+  margin: 0;
 }
 
 .skeleton {
@@ -535,7 +544,7 @@ button:hover {
     min-width: 0;
     margin-right: 0;
     border-radius: 8px;
-    padding: 10px 12px;
+    /* padding: 10px 12px; */
     font-size: 16px;
   }
 

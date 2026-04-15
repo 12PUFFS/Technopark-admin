@@ -61,12 +61,13 @@ export default function Header() {
               placeholder={active}
               type="text"
             />
-            {text.trim().length > 0 && (
+            {text.trim().length > 0 && text !== active && (
               <div className="trash">
                 <img
                   onClick={() => {
                     setText('');
                     filterText('');
+                    setActive(categories[0]);
                   }}
                   className="trash-img"
                   src={cross}
